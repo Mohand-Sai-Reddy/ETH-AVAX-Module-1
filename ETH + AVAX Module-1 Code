@@ -1,0 +1,26 @@
+//write a smart contract that implements the require(), assert() and revert() statements.
+// SPDX-License-Identifier: MIT
+pragma solidity = 0.8.18;
+
+contract AVAX_Module_1 {
+    uint public number;
+
+    function setNumber(uint _number) public {
+        require(_number > 0, "_number must be greater than 0");
+        number = _number;
+    }
+
+    function setNumber_With_Assert(uint _number) public {
+        assert(_number > 0);
+        number = _number;
+    }
+
+    function setNumber_With_Revert(uint _number) public {
+        if (_number != 0) {
+            number = _number;
+        }
+        else{
+            revert("_number cannot be zero");
+        }
+    }
+}
